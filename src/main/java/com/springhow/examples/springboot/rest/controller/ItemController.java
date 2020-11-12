@@ -22,5 +22,10 @@ public class ItemController {
     List<Item> get() {
         return itemRepository.findAll();
     }
+    
+    @GetMapping("/{itemId}")
+    Item get(@PathVariable Integer itemId) {
+        return itemRepository.findById(itemId).orElseThrow(RuntimeException::new);
+    }
 }
 
